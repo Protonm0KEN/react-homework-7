@@ -1,35 +1,35 @@
-import React from 'react';
+import React from "react";
 function getRandom(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 class ButtonWithCalculating extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      count: this.props.count
-    }
-    this.increment = this.increment.bind(this)
-    this.decrement = this.decrement.bind(this)
-    this.random = this.random.bind(this)
-    this.reset = this.reset.bind(this)
+      count: this.props.count,
+    };
+    this.increment = this.increment.bind(this);
+    this.decrement = this.decrement.bind(this);
+    this.random = this.random.bind(this);
+    this.reset = this.reset.bind(this);
   }
   increment() {
-    if(this.state.count <= 30){
-    this.setState({
-      count: this.state.count + 1,
-    });
+    if (this.state.count <= 29) {
+      this.setState({
+        count: this.state.count + 1,
+      });
     }
   }
   decrement() {
-    if(this.state.count >= -30){
-    this.setState({
-      count: this.state.count - 1,
-    });
-  }
+    if (this.state.count >= -29) {
+      this.setState({
+        count: this.state.count - 1,
+      });
+    }
   }
   random() {
     this.setState({
-      count: this.state.count + getRandom(0, 30),
+      count: getRandom(0, 30),
     });
   }
   reset() {
@@ -37,7 +37,7 @@ class ButtonWithCalculating extends React.Component {
       count: 0,
     });
   }
-  render(){
+  render() {
     return (
       <div>
         <h1>{this.state.count}</h1>
